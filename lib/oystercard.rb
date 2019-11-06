@@ -1,4 +1,5 @@
 class Oystercard
   def balance
-  end 
+    0
+  end
 end

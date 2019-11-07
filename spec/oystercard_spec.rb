@@ -29,7 +29,8 @@ describe Oystercard do
     end
 
     it 'changes status of oystercard to tapped out' do
-      expect{subject.tap_out}.to change{subject.card_status}.to false 
+      expect subject.tap_in
+      expect{subject.tap_out}.to change{subject.card_status}.to false
     end
   end
 

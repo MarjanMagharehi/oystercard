@@ -23,6 +23,14 @@ describe Oystercard do
 
   describe '#journey_in?' do
     it {is_expected.to respond_to :journey_in?}
+
+    it 'changes status of oystercard to tapped in' do
+      expect{subject.tap_in}.to change{subject.card_status}.to true
+    end
+
+    it 'changes status of oystercard to tapped out' do
+      expect{subject.tap_out}.to change{subject.card_status}.to false 
+    end
   end
 
 end

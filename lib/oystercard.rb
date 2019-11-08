@@ -17,6 +17,7 @@ class Oystercard
     @card_status
   end
   def tap_in
+    fail "Insufficient balance to tap in" if balance < 1
     @card_status = true
   end
   def tap_out

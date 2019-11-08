@@ -3,6 +3,7 @@ class Oystercard
   attr_accessor :card_status
   MAXIMUM_BALANCE = 90
   MINIMUM_BALANCE = 1
+  MINIMUM_CHARGE = 1
   def initialize
     @balance = 0
     @card_status = false
@@ -22,6 +23,7 @@ class Oystercard
     @card_status = true
   end
   def tap_out
+    deduct(MINIMUM_CHARGE)
     @card_status = false
   end
 end

@@ -40,6 +40,13 @@ describe Oystercard do
       expect subject.tap_in
       expect{subject.tap_out}.to change{subject.card_status}.to false
     end
+
+    it 'checks that a charge is made to the oystercard when tapped out' do
+      minimum_balance = Oystercard::MINIMUM_BALANCE
+      subject.top_up(minimum_balance)
+      subject.tap_in
+      expect{subject.tap_out}.to change{subject.balance}.by(-Oystercard::MINIMUM_CHARGE)
+    end
   end
 
 end

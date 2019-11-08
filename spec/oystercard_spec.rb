@@ -14,12 +14,12 @@ describe Oystercard do
       expect{subject.top_up 1}.to raise_error "Top up failed, maximum balance of #{maximum_balance} exceeded"
     end
   end
-  describe '#deduct' do
-    it{is_expected.to respond_to(:deduct).with(1).argument}
-    it 'deducts money from the oystercard' do
-      expect{subject.deduct(4)}.to change{subject.balance}.by(-4)
-    end
-  end
+  # describe '#deduct' do
+  #   it{is_expected.to respond_to(:deduct).with(1).argument}
+  #   it 'deducts money from the oystercard' do
+  #     expect{subject.deduct(4)}.to change{subject.balance}.by(-4)
+  #   end
+  # end
 
   describe '#journey_in?' do
     it {is_expected.to respond_to :journey_in?}

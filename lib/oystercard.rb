@@ -12,9 +12,11 @@ class Oystercard
     fail "Top up failed, maximum balance of #{MAXIMUM_BALANCE} exceeded" if amount + balance > MAXIMUM_BALANCE
     @balance += amount
   end
-  def deduct(amount)
+
+  private def deduct(amount)
     @balance -= amount
   end
+  
   def journey_in?
     @card_status
   end
@@ -26,4 +28,6 @@ class Oystercard
     deduct(MINIMUM_CHARGE)
     @card_status = false
   end
+
+
 end

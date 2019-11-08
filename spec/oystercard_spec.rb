@@ -28,6 +28,10 @@ describe Oystercard do
       expect{subject.tap_in}.to change{subject.card_status}.to true
     end
 
+    it 'raises an error if there is insufficient balance when tapped in' do
+      expect{subject.tap_in}.to raise_error "Insufficient balance to tap in"
+    end
+
     it 'changes status of oystercard to tapped out' do
       expect subject.tap_in
       expect{subject.tap_out}.to change{subject.card_status}.to false
